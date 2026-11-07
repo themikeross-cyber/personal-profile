@@ -10,6 +10,7 @@
   --heading: #1c325f;
   --brand: #29aae1;
   --rule: #ff4143;
+  --line: #e3e8ef;
   --header: 5.25rem;
 }
 
@@ -98,14 +99,51 @@ h3 {
   display: block;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.theme-toggle {
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.28rem 0.5rem;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--brand);
+  border-color: var(--brand);
+  outline: none;
+}
+
+.theme-toggle[aria-pressed="true"] {
+  background: #ffffff;
+  color: #111111;
+  border-color: #ffffff;
+}
+
 .menu-toggle {
   display: none;
+  flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.45);
   background: transparent;
   color: #ffffff;
   font: inherit;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
   min-height: 2.75rem;
   padding: 0.45rem 0.9rem;
   cursor: pointer;
@@ -210,7 +248,7 @@ nav a:focus-visible::after {
 
 .button-ghost {
   background: var(--brand);
-  color: var(--navy);
+  color: var(--surface);
   border: 1px solid var(--brand);
 }
 
@@ -299,16 +337,16 @@ h2::before {
 /* Experience */
 .job {
   padding: 1.4rem 0 1.5rem;
-  border-top: 1px solid #e3e8ef;
+  border-top: 1px solid var(--line);
 }
 
 .job:last-of-type {
-  border-bottom: 1px solid #e3e8ef;
+  border-bottom: 1px solid var(--line);
 }
 
 .job-current {
   background: var(--surface);
-  border: 1px solid #e3e8ef;
+  border: 1px solid var(--line);
   border-top: 0.25rem solid var(--heading);
   padding: 1.4rem 1.3rem 1.2rem;
   box-shadow: 0 0.5rem 1.4rem rgba(28, 50, 95, 0.06);
@@ -403,7 +441,7 @@ select,
 textarea {
   width: 100%;
   padding: 0.75rem 0.9rem;
-  border: 1px solid #c5ceda;
+  border: 1px solid var(--line);
   border-radius: 0.2rem;
   background: var(--surface);
   color: var(--text);
@@ -495,44 +533,65 @@ form button:focus-visible {
   font-size: 0.9rem;
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121820;
-    --surface: #1c2633;
-    --text: #e6ebf2;
-    --muted: #b7c0cc;
-    --heading: #d5deea;
-    --brand: #5ec4f0;
-  }
+/* Dark mode: the same layout in black, white, and gray. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0e0e0e;
+  --surface: #1a1a1a;
+  --text: #f3f3f3;
+  --muted: #c2c2c2;
+  --navy: #000000;
+  --heading: #ffffff;
+  --brand: #ffffff;
+  --line: #333333;
+}
 
-  .site-header,
-  .hero,
-  .site-footer {
-    background: #0e1724;
-  }
+html[data-theme="dark"] .hero {
+  background: #000000;
+  background-image: linear-gradient(160deg, #000000 0%, #111111 60%, #3a3a3a 140%);
+  color: #ffffff;
+}
 
-  .hero {
-    background-image: linear-gradient(160deg, #0e1724 0%, #1c325f 70%, #1a6f96 140%);
-  }
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] .role,
+html[data-theme="dark"] .lede,
+html[data-theme="dark"] .kicker {
+  color: #ffffff;
+}
 
-  .hero h1,
-  .role,
-  .lede {
-    color: #f4f7fb;
-  }
+html[data-theme="dark"] .lede {
+  color: rgba(255, 255, 255, 0.88);
+}
 
-  h2,
-  h3,
-  label,
-  .facts span,
-  .skills li {
-    color: #d5deea;
-  }
+html[data-theme="dark"] .button,
+html[data-theme="dark"] .button-ghost {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
 
-  main section:nth-of-type(even) {
-    background: #182230;
-  }
+html[data-theme="dark"] .button:hover,
+html[data-theme="dark"] .button-ghost:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+html[data-theme="dark"] .facts li,
+html[data-theme="dark"] .skills li,
+html[data-theme="dark"] .team li,
+html[data-theme="dark"] .job-current {
+  box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] form button[type="submit"] {
+  border: 1px solid #ffffff;
+}
+
+html[data-theme="dark"] .theme-toggle[aria-pressed="true"]:hover,
+html[data-theme="dark"] .theme-toggle[aria-pressed="true"]:focus-visible {
+  color: #000000;
+  border-color: #ffffff;
 }
 
 /* Responsive
@@ -615,6 +674,20 @@ form button:focus-visible {
   .site-header {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  .brand img {
+    width: 7.25rem;
+  }
+
+  .header-actions {
+    gap: 0.45rem;
+  }
+
+  .menu-toggle {
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    padding: 0.4rem 0.55rem;
   }
 
   .hero {
