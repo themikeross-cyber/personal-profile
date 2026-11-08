@@ -315,6 +315,26 @@ h2::before {
   font-weight: 700;
 }
 
+/* Show / hide control sits just above the skills section. */
+.skills-bar {
+  padding: 2.5rem 6vw 0;
+}
+
+.skills-toggle {
+  font: inherit;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  background: var(--navy);
+  color: #ffffff;
+  border: 1px solid var(--navy);
+  cursor: pointer;
+}
+
+.skills-toggle:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+}
+
 /* Skills — grid */
 .skills {
   display: grid;
@@ -584,7 +604,8 @@ html[data-theme="dark"] .job-current {
   box-shadow: 0 0.5rem 1.4rem rgba(0, 0, 0, 0.45);
 }
 
-html[data-theme="dark"] form button[type="submit"] {
+html[data-theme="dark"] form button[type="submit"],
+html[data-theme="dark"] .skills-toggle {
   border: 1px solid #ffffff;
 }
 
@@ -613,6 +634,11 @@ html[data-theme="dark"] .theme-toggle[aria-pressed="true"]:focus-visible {
 
   nav ul {
     gap: 1rem;
+  }
+
+  .skills-bar {
+    padding-left: 5vw;
+    padding-right: 5vw;
   }
 
   .hero {
@@ -688,6 +714,11 @@ html[data-theme="dark"] .theme-toggle[aria-pressed="true"]:focus-visible {
     font-size: 0.82rem;
     letter-spacing: 0.02em;
     padding: 0.4rem 0.55rem;
+  }
+
+  .skills-bar {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .hero {

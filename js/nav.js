@@ -31,3 +31,28 @@ nav.querySelectorAll("a").forEach((link) => {
     toggle.setAttribute("aria-expanded", "false");
   });
 });
+
+const skills = document.querySelector("#skills");
+const skillsToggle = document.querySelector("#skills-toggle");
+
+function setSkillsVisible(show) {
+  skills.hidden = !show;
+  skillsToggle.textContent = show ? "Hide" : "Show";
+  skillsToggle.setAttribute("aria-expanded", String(show));
+}
+
+function toggleSkills() {
+  setSkillsVisible(skills.hidden);
+}
+
+skillsToggle.addEventListener("click", toggleSkills);
+
+document.addEventListener("keydown", (event) => {
+  if (event.repeat || event.metaKey || event.ctrlKey || event.altKey) return;
+  if (event.key !== "t" && event.key !== "T") return;
+  const active = document.activeElement;
+  const tag = active && active.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || (active && active.isContentEditable)) return;
+  event.preventDefault();
+  toggleSkills();
+});
