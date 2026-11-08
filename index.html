@@ -32,6 +32,7 @@
           <li><a href="#experience">Experience</a></li>
           <li><a href="#leadership">Leadership</a></li>
           <li><a href="#training">Training</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -266,6 +267,24 @@
       </article>
     </section>
 
+    <section id="projects">
+      <h2>Projects</h2>
+      <form id="project-form" class="project-form">
+        <p>
+          <label for="project-name">Project name</label>
+          <input type="text" id="project-name" name="project-name" required>
+        </p>
+        <p>
+          <label for="project-description">Description</label>
+          <textarea id="project-description" name="project-description" required></textarea>
+        </p>
+        <p>
+          <button type="submit">Add Project</button>
+        </p>
+      </form>
+      <ul id="project-list" class="project-list"></ul>
+    </section>
+
     <section id="contact">
       <h2>Contact</h2>
       <form action="#" method="post">
@@ -328,5 +347,6 @@
   </footer>
 
   <script src="js/nav.js"></script>
+  <script src="js/projects.js"></script>
 </body>
 </html>
