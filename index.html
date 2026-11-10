@@ -287,10 +287,10 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <form action="#" method="post">
+      <form id="contact-form" action="https://formspree.io/f/mljbreqr" method="post">
         <p hidden>
           <label for="website">Website</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
         </p>
 
         <p>
@@ -327,6 +327,7 @@
           <label for="subscribe">Subscribe me to occasional updates.</label>
         </p>
 
+        <p id="contact-status" class="contact-status" role="status" hidden></p>
         <p>
           <button type="submit">Send message</button>
           <button type="reset">Reset</button>
@@ -348,5 +349,6 @@
 
   <script src="js/nav.js"></script>
   <script src="js/projects.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>

@@ -581,6 +581,17 @@ form button:focus-visible {
   outline-offset: 2px;
 }
 
+form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.contact-status {
+  margin: 0 0 1rem;
+  color: var(--heading);
+  font-weight: 700;
+}
+
 /* Footer */
 .site-footer {
   padding: 2.4rem 6vw 2.6rem;
