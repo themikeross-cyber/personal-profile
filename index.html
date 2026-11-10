@@ -282,6 +282,12 @@
           <button type="submit">Add Project</button>
         </p>
       </form>
+      <p class="project-search">
+        <label for="project-search">Search projects</label>
+        <input type="search" id="project-search" autocomplete="off">
+      </p>
+      <p id="project-count" class="project-count" aria-live="polite"></p>
+      <p id="project-empty" class="project-empty" hidden>No projects match your search</p>
       <ul id="project-list" class="project-list"></ul>
     </section>
 

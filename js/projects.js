@@ -1,4 +1,4 @@
-const projects = [
+const starterProjects = [
   {
     name: "Identity and access upkeep",
     description: "Keep Active Directory, Azure AD, and ADFS accounts and groups current so people can reach the systems they need."
@@ -13,11 +13,51 @@ const projectForm = document.querySelector("#project-form");
 const projectList = document.querySelector("#project-list");
 const projectName = document.querySelector("#project-name");
 const projectDescription = document.querySelector("#project-description");
+const projectSearch = document.querySelector("#project-search");
+const projectCount = document.querySelector("#project-count");
+const projectEmpty = document.querySelector("#project-empty");
+
+function loadProjects() {
+  try {
+    const saved = localStorage.getItem("projects");
+    if (!saved) return starterProjects.map((project) => ({ ...project }));
+    const parsed = JSON.parse(saved);
+    if (!Array.isArray(parsed)) return starterProjects.map((project) => ({ ...project }));
+    return parsed.filter((project) => {
+      return project && typeof project.name === "string" && typeof project.description === "string";
+    });
+  } catch (error) {
+    return starterProjects.map((project) => ({ ...project }));
+  }
+}
+
+const projects = loadProjects();
+
+function saveProjects() {
+  try {
+    localStorage.setItem("projects", JSON.stringify(projects));
+  } catch (error) {}
+}
+
+function matchingProjects() {
+  const term = projectSearch.value.trim().toLowerCase();
+  return projects.filter((project) => {
+    const name = project.name.toLowerCase();
+    const description = project.description.toLowerCase();
+    return name.includes(term) || description.includes(term);
+  });
+}
 
 function renderProjects() {
+  const visible = matchingProjects();
   projectList.replaceChildren();
+  projectCount.textContent = "Showing " + visible.length + " of " + projects.length + " projects";
 
-  projects.forEach((project, index) => {
+  const noMatches = visible.length === 0;
+  projectEmpty.hidden = !noMatches;
+  projectList.hidden = noMatches;
+
+  visible.forEach((project) => {
     const card = document.createElement("li");
     card.className = "project-card";
 
@@ -33,7 +73,8 @@ function renderProjects() {
     remove.textContent = "×";
     remove.setAttribute("aria-label", "Delete " + project.name);
     remove.addEventListener("click", () => {
-      projects.splice(index, 1);
+      projects.splice(projects.indexOf(project), 1);
+      saveProjects();
       renderProjects();
     });
 
@@ -51,7 +92,10 @@ projectForm.addEventListener("submit", (e) => {
 
   projects.push({ name, description });
   projectForm.reset();
+  saveProjects();
   renderProjects();
 });
+
+projectSearch.addEventListener("input", renderProjects);
 
 renderProjects();
