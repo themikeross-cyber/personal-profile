@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Michael Ross</title>
+  <meta name="description" content="Projects from Michael Ross, Cyber Security Engineer at Woda Cooper Companies, Inc.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    try {
+      const fromUrl = new URLSearchParams(location.search).get("theme");
+      const theme = fromUrl === "dark" || fromUrl === "light" ? fromUrl : localStorage.getItem("theme");
+      if (fromUrl === "dark" || fromUrl === "light") {
+        localStorage.setItem("theme", fromUrl);
+      }
+      if (theme === "dark") {
+        document.documentElement.dataset.theme = "dark";
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-white.webp" alt="Woda Cooper Companies" width="210" height="82">
+    </a>
+    <div class="header-actions">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a class="active" href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+      <div class="weather" aria-live="polite">
+        <form id="weather-form" class="weather-form">
+          <label for="weather-city">City</label>
+          <input id="weather-city" type="text" name="city" placeholder="Columbus" autocomplete="off">
+          <button id="weather-search" type="submit">Search</button>
+        </form>
+        <p id="weather-status" class="weather-status" role="status" hidden></p>
+        <p id="weather-card" class="weather-card" hidden></p>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section id="projects">
+      <h1 class="page-title">Projects</h1>
+      <form id="project-form" class="project-form">
+        <p>
+          <label for="project-name">Project name</label>
+          <input type="text" id="project-name" name="project-name" required>
+        </p>
+        <p>
+          <label for="project-description">Description</label>
+          <textarea id="project-description" name="project-description" required></textarea>
+        </p>
+        <p>
+          <button type="submit">Add Project</button>
+        </p>
+      </form>
+      <p class="project-search">
+        <label for="project-search">Search projects</label>
+        <input type="search" id="project-search" autocomplete="off">
+      </p>
+      <p id="project-count" class="project-count" aria-live="polite"></p>
+      <p id="project-empty" class="project-empty" hidden>No projects match your search</p>
+      <ul id="project-list" class="project-list"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img src="assets/logo-white.webp" alt="" width="180" height="70">
+    <p>Michael Ross · Cyber Security Engineer</p>
+    <p>
+      <a href="https://www.linkedin.com/in/michael-ross-b5812895/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      ·
+      <a href="https://www.wodagroup.com/" target="_blank" rel="noopener noreferrer">Woda Cooper Companies, Inc.</a>
+    </p>
+    <p class="fine">Personal profile for coursework. The Woda Cooper name and logo identify my employer.</p>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>

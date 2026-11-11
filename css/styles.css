@@ -134,6 +134,85 @@ h3 {
   border-color: #ffffff;
 }
 
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  max-width: 18rem;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.weather-form {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.weather label {
+  color: #ffffff;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.weather-form input {
+  width: 9.5rem;
+  padding: 0.28rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 0.2rem;
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.weather-form input::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.weather-form button[type="submit"] {
+  width: auto;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: #ffffff;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.5rem;
+}
+
+.weather-form button:hover,
+.weather-form button:focus-visible {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+.weather-status,
+.weather-card {
+  margin: 0;
+  text-align: right;
+}
+
+.weather-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  padding: 0.28rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.weather-error {
+  flex-basis: 100%;
+  white-space: normal;
+  font-weight: 600;
+}
+
 .menu-toggle {
   display: none;
   flex-shrink: 0;
@@ -184,12 +263,14 @@ nav a::after {
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus-visible,
+nav a.active {
   color: var(--brand);
 }
 
 nav a:hover::after,
-nav a:focus-visible::after {
+nav a:focus-visible::after,
+nav a.active::after {
   transform: scaleX(1);
 }
 
@@ -267,13 +348,15 @@ main section:nth-of-type(even) {
   background: var(--surface);
 }
 
-h2 {
+h2,
+.page-title {
   margin: 0 0 1.5rem;
   font-size: clamp(2rem, 4vw, 2.6rem);
   text-transform: uppercase;
 }
 
-h2::before {
+h2::before,
+.page-title::before {
   content: "";
   display: block;
   width: 4.4rem;
@@ -726,6 +809,15 @@ html[data-theme="dark"] .theme-toggle[aria-pressed="true"]:focus-visible {
     gap: 1rem;
   }
 
+  .header-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .weather {
+    flex-basis: 100%;
+  }
+
   .skills-bar {
     padding-left: 5vw;
     padding-right: 5vw;
@@ -799,6 +891,10 @@ html[data-theme="dark"] .theme-toggle[aria-pressed="true"]:focus-visible {
 
   .header-actions {
     gap: 0.45rem;
+  }
+
+  .weather {
+    font-size: 0.72rem;
   }
 
   .menu-toggle {

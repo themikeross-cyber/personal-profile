@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Michael Ross</title>
+  <meta name="description" content="About Michael Ross, his experience, and the technology team he leads at Woda Cooper Companies, Inc.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    try {
+      const fromUrl = new URLSearchParams(location.search).get("theme");
+      const theme = fromUrl === "dark" || fromUrl === "light" ? fromUrl : localStorage.getItem("theme");
+      if (fromUrl === "dark" || fromUrl === "light") {
+        localStorage.setItem("theme", fromUrl);
+      }
+      if (theme === "dark") {
+        document.documentElement.dataset.theme = "dark";
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-white.webp" alt="Woda Cooper Companies" width="210" height="82">
+    </a>
+    <div class="header-actions">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="about.html" aria-current="page">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+      <div class="weather" aria-live="polite">
+        <form id="weather-form" class="weather-form">
+          <label for="weather-city">City</label>
+          <input id="weather-city" type="text" name="city" placeholder="Columbus" autocomplete="off">
+          <button id="weather-search" type="submit">Search</button>
+        </form>
+        <p id="weather-status" class="weather-status" role="status" hidden></p>
+        <p id="weather-card" class="weather-card" hidden></p>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section id="about">
+      <h1 class="page-title">About</h1>
+      <div class="about-grid">
+        <div>
+          <p>I am a Cyber Security Engineer at Woda Cooper Companies, Inc., an employee-owned firm that develops, builds, and manages affordable housing. I joined in August 2016 as an IT Technician in Westerville, moved into the network administrator role, and now lead the group that keeps identity, access, and day-to-day technology working across the company.</p>
+          <p>I still measure the work the same way I did in earlier jobs: the person on the other end should have a clear answer, the team should want to work together, and the next improvement should be earned. That habit showed up as a store manager, as an electronics repair lead in the Army, and in the promotions inside Woda Cooper.</p>
+        </div>
+        <ul class="facts">
+          <li><span>10 years</span> at Woda Cooper, since August 2016</li>
+          <li><span>Team of 5</span> across AI, procurement, and the help desk</li>
+          <li><span>Columbus</span> Ohio, supporting a multi-state company</li>
+          <li><span>Army</span> Maintenance Excellence Award</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <article class="job job-current">
+        <header class="job-head">
+          <div>
+            <h3>Cyber Security Engineer</h3>
+            <p class="org">Woda Cooper Companies, Inc.</p>
+          </div>
+          <p class="when">August 2016 – Present<br>Columbus, Ohio</p>
+        </header>
+        <p>I started as an IT Technician and was promoted to Network Administrator before taking the cyber security engineer role. The early work is still the foundation of what the team does today.</p>
+        <ul>
+          <li>Created and managed users and groups in Active Directory, and administered on-premises ADFS, Azure AD, and Office 365 Exchange.</li>
+          <li>Managed local and remote access to file servers and shares, including VPN, network connectivity, IP conflicts, and VoIP.</li>
+          <li>Tracked incoming and outgoing inventory and the end-of-life process for equipment.</li>
+          <li>Managed on-premises and cloud servers and file shares.</li>
+          <li>Now responsible for an AI enablement lead, a procurement specialist, an IT helpdesk administrator, and two helpdesk technicians.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>MHS Operations Monitoring</h3>
+            <p class="org">TEKsystems</p>
+          </div>
+          <p class="when">April 2016 – September 2016<br>Polaris, Ohio</p>
+        </header>
+        <ul>
+          <li>Monitored more than 700 servers and tracked traffic spikes, file-processing failures, and database errors.</li>
+          <li>Used SQL, PowerShell, SolarWinds, and WFMS to keep operations consistent.</li>
+          <li>Worked with the development team on troubleshooting protocols for critical failures.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Contractor</h3>
+            <p class="org">Excel Management Systems</p>
+          </div>
+          <p class="when">August 2015 – December 2015<br>Columbus, Ohio</p>
+        </header>
+        <ul>
+          <li>Helped upgrade systems for Ohio BMV and title offices: new computers, repaired servers and desktops, and software installed to state security standards.</li>
+          <li>Prepared hardware so network technicians could apply security protocols, and replaced routers, switches, and NAS devices.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Operations Manager</h3>
+            <p class="org">Z Drive Thru LLC</p>
+          </div>
+          <p class="when">February 2015 – August 2015<br>Columbus, Ohio</p>
+        </header>
+        <ul>
+          <li>Ran day-to-day operations for a startup across three locations, with inventory over $550,000.</li>
+          <li>Led and trained eight employees, and handled inventory, signage, the website, and marketing.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Assistant Store Manager</h3>
+            <p class="org">OfficeMax</p>
+          </div>
+          <p class="when">January 2014 – February 2015<br>Dublin, Ohio</p>
+        </header>
+        <ul>
+          <li>Kept daily operations and customer service at a rating over 92 percent.</li>
+          <li>Accountable for more than $3 million in inventory and for up to 17 employees, with reporting to corporate and the district manager.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Sales Associate</h3>
+            <p class="org">Best Buy</p>
+          </div>
+          <p class="when">September 2013 – January 2014</p>
+        </header>
+        <ul>
+          <li>Owned the customer conversation from product fit through accessories, issues, and returns, and kept the department stocked.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Special Electronics Device Repairer</h3>
+            <p class="org">U.S. Army</p>
+          </div>
+          <p class="when">January 2007 – January 2013</p>
+        </header>
+        <ul>
+          <li>Stood up the electronics repair shop and led a team of six.</li>
+          <li>Serviced more than 9,000 pieces of equipment, from computers and satellite phones to night-vision goggles and infrared optics, totaling over 20,000 hours of repair work.</li>
+          <li>Received the Army Maintenance Excellence Award. One of those awards is given in the Army each year.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Manager</h3>
+            <p class="org">RadioShack</p>
+          </div>
+          <p class="when">December 2005 – February 2007</p>
+        </header>
+        <ul>
+          <li>Promoted to manager in four months, the fastest promotion in RadioShack at the time.</li>
+          <li>Improved store profit by 450 percent in under 12 months and raised customer retention by 47 percent.</li>
+          <li>Managed workflow, profit and loss, and training, reporting to the district manager.</li>
+        </ul>
+      </article>
+
+      <p class="note">In 2004 I ranked 15th in Subaru sales in North America.</p>
+    </section>
+
+    <section id="leadership">
+      <h2>Leadership</h2>
+      <p class="section-intro">The technology group I am responsible for at Woda Cooper.</p>
+      <ul class="team">
+        <li>
+          <h3>AI Enablement Lead</h3>
+          <p>Puts practical AI tools into the way the company already works.</p>
+        </li>
+        <li>
+          <h3>Procurement Specialist</h3>
+          <p>Handles the technology the company buys, from request through delivery.</p>
+        </li>
+        <li>
+          <h3>IT Helpdesk Administrator</h3>
+          <p>Runs the help desk that employees call when something breaks.</p>
+        </li>
+        <li>
+          <h3>Helpdesk Technicians</h3>
+          <p>Two technicians who take the tickets, desk-side issues, and follow-through.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="training">
+      <h2>Training</h2>
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Courses</h3>
+            <p class="org">MyComputerCareer</p>
+          </div>
+          <p class="when">February 2016 – September 2016, then 2025</p>
+        </header>
+        <p>Completed the initial course in 2016, then the CSS and CSE courses in 2025.</p>
+        <ul>
+          <li>CompTIA Network+</li>
+          <li>CompTIA Security+</li>
+          <li>CompTIA CySA+</li>
+          <li>CompTIA SecurityX</li>
+          <li>Cisco CCNA</li>
+          <li>Cisco Certified CyberOps Associate</li>
+          <li>EC-Council CEH</li>
+          <li>Linux Essentials</li>
+          <li>CertNexus CFR</li>
+          <li>Microsoft AI-901: Azure AI Fundamentals</li>
+          <li>Microsoft AZ-104: Azure Administrator Associate</li>
+        </ul>
+      </article>
+      <article class="job">
+        <header class="job-head">
+          <div>
+            <h3>Server and cybersecurity courses</h3>
+            <p class="org">Microsoft</p>
+          </div>
+        </header>
+        <p>Completed multiple Microsoft server courses and multiple Microsoft cybersecurity courses.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img src="assets/logo-white.webp" alt="" width="180" height="70">
+    <p>Michael Ross · Cyber Security Engineer</p>
+    <p>
+      <a href="https://www.linkedin.com/in/michael-ross-b5812895/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      ·
+      <a href="https://www.wodagroup.com/" target="_blank" rel="noopener noreferrer">Woda Cooper Companies, Inc.</a>
+    </p>
+    <p class="fine">Personal profile for coursework. The Woda Cooper name and logo identify my employer.</p>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/weather.js"></script>
+</body>
+</html>

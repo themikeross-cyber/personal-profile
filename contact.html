@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Michael Ross</title>
+  <meta name="description" content="Contact Michael Ross, Cyber Security Engineer at Woda Cooper Companies, Inc.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    try {
+      const fromUrl = new URLSearchParams(location.search).get("theme");
+      const theme = fromUrl === "dark" || fromUrl === "light" ? fromUrl : localStorage.getItem("theme");
+      if (fromUrl === "dark" || fromUrl === "light") {
+        localStorage.setItem("theme", fromUrl);
+      }
+      if (theme === "dark") {
+        document.documentElement.dataset.theme = "dark";
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-white.webp" alt="Woda Cooper Companies" width="210" height="82">
+    </a>
+    <div class="header-actions">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a class="active" href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+      <div class="weather" aria-live="polite">
+        <form id="weather-form" class="weather-form">
+          <label for="weather-city">City</label>
+          <input id="weather-city" type="text" name="city" placeholder="Columbus" autocomplete="off">
+          <button id="weather-search" type="submit">Search</button>
+        </form>
+        <p id="weather-status" class="weather-status" role="status" hidden></p>
+        <p id="weather-card" class="weather-card" hidden></p>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section id="contact">
+      <h1 class="page-title">Contact</h1>
+      <form id="contact-form" action="https://formspree.io/f/mljbreqr" method="post">
+        <p hidden>
+          <label for="website">Website</label>
+          <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
+        </p>
+
+        <p>
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" required pattern="[A-Za-z ]+" title="Letters and spaces only">
+        </p>
+
+        <p>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </p>
+
+        <p>
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel">
+        </p>
+
+        <p>
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option>General</option>
+            <option>Project inquiry</option>
+            <option>Other</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="What would you like to talk about?"></textarea>
+        </p>
+
+        <p>
+          <input type="checkbox" id="subscribe" name="subscribe">
+          <label for="subscribe">Subscribe me to occasional updates.</label>
+        </p>
+
+        <p id="contact-status" class="contact-status" role="status" hidden></p>
+        <p>
+          <button type="submit">Send message</button>
+          <button type="reset">Reset</button>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img src="assets/logo-white.webp" alt="" width="180" height="70">
+    <p>Michael Ross · Cyber Security Engineer</p>
+    <p>
+      <a href="https://www.linkedin.com/in/michael-ross-b5812895/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      ·
+      <a href="https://www.wodagroup.com/" target="_blank" rel="noopener noreferrer">Woda Cooper Companies, Inc.</a>
+    </p>
+    <p class="fine">Personal profile for coursework. The Woda Cooper name and logo identify my employer.</p>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
